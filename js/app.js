@@ -1,6 +1,13 @@
+var url = window.location.href;
+var swLocation = '/sw.js' //Aqui se agrega el endPoint del sitio web en caso no sea proyecto raiz
 
 if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('/sw.js');
+
+    if (url.includes('localhost')){
+        navigator.serviceWorker.register('/sw.js');
+    }
+
+    navigator.serviceWorker.register( swLocation );
 }
 
 // Referencias de jQuery
